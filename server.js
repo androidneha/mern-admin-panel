@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -17,6 +18,14 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(bodyParser.json());
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
+app.listen(9000);
 
 const db = require('./config/keys').mongoURI;
 
