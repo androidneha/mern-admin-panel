@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
@@ -49,59 +48,44 @@ class Login extends Component {
     render() {
         const { errors } = this.state;
         return (
-            <div>
-                <div className="valign-wrapper content-wrapper-100vh center-align">
-                    <div className="row" style={{
-                        marginTop: "60px"
-                    }}>
-                        <div className="card white z-depth-5 col s8 offset-s2">
-                            <div className="col s12">
-                                <h4 className="center blue-text">
-                                    <b>Login</b>
-                                </h4>
-                            </div>
+            <div className="container">
+                <div className="row mt-5">
+                    <div className="col-md-4 mx-auto mt-5 card shadow-lg">
+                        <div className="card-body p-1">
+                            <h2 className="text-center text-primary mt-3">Login</h2>
                             <form noValidate onSubmit={this.onSubmit} className="white">
-                                <div className="input-field col s12">
-                                    <input
-                                        onChange={this.onChange}
-                                        value={this.state.email}
-                                        error={errors.email}
-                                        id="email"
-                                        type="email"
-                                        className={classnames("", {
-                                            invalid: errors.email
-                                        })}
-                                    />
-                                    <label htmlFor="email">Email</label>
-                                    <span className="red-text">{errors.email}</span>
-                                </div>
-                                <div className="input-field col s12">
-                                    <input
-                                        onChange={this.onChange}
-                                        value={this.state.password}
-                                        error={errors.password}
-                                        id="password"
-                                        type="password"
-                                        className={classnames("", {
-                                            invalid: errors.password
-                                        })}
-                                    />
-                                    <label htmlFor="password">Password</label>
-                                    <span className="red-text">{errors.password}</span>
-                                </div>
-                                <div className="col s12 center" style={{ paddingLeft: "11.250px" }}>
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.email}
+                                    error={errors.email}
+                                    id="email"
+                                    type="email"
+                                    className={classnames("form-control", {
+                                        invalid: errors.email
+                                    })}
+                                />
+                                <span className="text-danger"><small><b>{errors.email}</b></small></span>
+                                <br />
+                                <label htmlFor="password">Password</label>
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.password}
+                                    error={errors.password}
+                                    id="password"
+                                    type="password"
+                                    className={classnames("form-control", {
+                                        invalid: errors.password
+                                    })}
+                                />
+                                <span className="text-danger"><small><b>{errors.password}</b></small></span>
+                                <p className="text-center pb-0 mt-2">
                                     <button
-                                        style={{
-                                            width: "150px",
-                                            borderRadius: "3px",
-                                            letterSpacing: "1.5px",
-                                            marginBottom: "20px"
-                                        }}
                                         type="submit"
-                                        className="btn btn-large waves-effect waves-light hoverable blue z-depth-3">
+                                        className="btn btn-large btn-primary mt-2 px-5">
                                         Login
                                     </button>
-                                </div>
+                                </p>
                             </form>
                         </div>
                     </div>

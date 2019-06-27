@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import Navbar from "../partials/Navbar";
+import Sidebar from "../partials/Sidebar";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faList} from "@fortawesome/free-solid-svg-icons/faList";
 
 class Dashboard extends Component {
 
@@ -14,32 +18,55 @@ class Dashboard extends Component {
         const { user } = this.props.auth;
         return (
             <div>
-                <div className="wrapper">
-                    <nav className="blue" role="navigation">
-                        <div className="nav-wrapper container">
-                            <a href="#!" className="brand-logo">Point of Sale</a>
-                            <ul className="right hide-on-med-and-down">
-                                <li><a className="dropdown-button" href="#" data-activates="dropdown1">Profile<i className="material-icons right">arrow_drop_down</i></a></li>
-                                <li><a onClick={this.onLogoutClick}>Logout <i className="material-icons right">logout</i></a></li>
-                            </ul>
+                <div className="d-flex" id="wrapper">
+                    <Sidebar/>
+                    <div id="page-content-wrapper">
+                        <Navbar/>
+                        <div className="container-fluid">
+                            <h1 className="mt-2">Dashboard</h1>
+                            <div className="row">
+                                <div className="col-sm-3 p-sm-2">
+                                    <div className="card bg-secondary text-white shadow-lg">
+                                        <div className="card-body">
+                                            <h5 className="card-title">Special title treatment</h5>
+                                            <p className="card-text">With supporting text below as a natural lead-in to
+                                                additional content.</p>
+                                            <a href="#" className="btn btn-light">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-3 p-sm-2">
+                                    <div className="card bg-success text-white shadow-lg">
+                                        <div className="card-body">
+                                            <h5 className="card-title">Special title treatment</h5>
+                                            <p className="card-text">With supporting text below as a natural lead-in to
+                                                additional content.</p>
+                                            <a href="#" className="btn btn-light">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-3 p-sm-2">
+                                    <div className="card bg-info text-white shadow-lg">
+                                        <div className="card-body">
+                                            <h5 className="card-title">Special title treatment</h5>
+                                            <p className="card-text">With supporting text below as a natural lead-in to
+                                                additional content.</p>
+                                            <a href="#" className="btn btn-light">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-3 p-sm-2">
+                                    <div className="card bg-danger text-white shadow-lg">
+                                        <div className="card-body">
+                                            <h5 className="card-title">Special title treatment</h5>
+                                            <p className="card-text">With supporting text below as a natural lead-in to
+                                                additional content.</p>
+                                            <a href="#" className="btn btn-light">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </nav>
-                    <ul id='dropdown1' className='dropdown-content'>
-                        <li><a href="#!">one</a></li>
-                        <li><a href="#!">two</a></li>
-                        <li className="divider" tabIndex="-1"></li>
-                        <li><a href="#!">three</a></li>
-                        <li><a href="#!"><i className="material-icons">view_module</i>four</a></li>
-                        <li><a href="#!"><i className="material-icons">cloud</i>five</a></li>
-                    </ul>
-                    <div className="center-align">
-                        <h4>
-                            <b>Hey there,</b> {user.name.split(" ")[0]}
-                            <p className="flow-text grey-text text-darken-1">
-                                You are logged into a full-stack{" "}
-                                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-                            </p>
-                        </h4>
                     </div>
                 </div>
             </div>
