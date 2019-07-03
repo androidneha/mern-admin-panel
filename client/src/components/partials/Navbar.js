@@ -4,7 +4,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 import {connect} from "react-redux";
 import {logoutUser} from "../../actions/authActions";
-import {faList} from "@fortawesome/free-solid-svg-icons/faList";
 
 class Navbar extends Component {
 
@@ -17,8 +16,8 @@ class Navbar extends Component {
         const { user } = this.props.auth;
         return (
             <div className="container-fluid p-0">
-                <nav className="navbar navbar-expand-lg navbar-light border-bottom shadow-sm">
-                    <button className="btn btn-link" id="menu-toggle"><FontAwesomeIcon icon={faList}/></button>
+                <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <a className="navbar-brand" href="/">Brand</a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -27,16 +26,16 @@ class Navbar extends Component {
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle text-primary" href="#" id="settings"
+                                <a className="nav-link dropdown-toggle" href="#" id="settings"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Settings
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="settings">
-                                    <a className="dropdown-item text-primary" href="#" onClick={this.onLogoutClick}>Logout</a>
+                                    <a className="dropdown-item" href="#" onClick={this.onLogoutClick}>Logout</a>
                                 </div>
                             </li>
                             <li className="nav-item active">
-                                <a className="nav-link text-primary" href="#" onClick={this.onLogoutClick}>Logout ({user.name}) <FontAwesomeIcon icon={faSignOutAlt} /> </a>
+                                <a className="nav-link" href="#" onClick={this.onLogoutClick}>Logout ({user.name}) <FontAwesomeIcon icon={faSignOutAlt} /> </a>
                             </li>
                         </ul>
                     </div>

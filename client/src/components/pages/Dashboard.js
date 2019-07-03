@@ -6,6 +6,8 @@ import Navbar from "../partials/Navbar";
 import Sidebar from "../partials/Sidebar";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faList} from "@fortawesome/free-solid-svg-icons/faList";
+import {Link} from "react-router-dom";
+import {faUserAlt} from "@fortawesome/free-solid-svg-icons/faUserAlt";
 
 class Dashboard extends Component {
 
@@ -15,28 +17,29 @@ class Dashboard extends Component {
     };
 
     render() {
-        const { user } = this.props.auth;
+        //const { user } = this.props.auth;
         return (
             <div>
+                <Navbar/>
                 <div className="d-flex" id="wrapper">
                     <Sidebar/>
                     <div id="page-content-wrapper">
-                        <Navbar/>
                         <div className="container-fluid">
-                            <h1 className="mt-2">Dashboard</h1>
-                            <div className="row">
+                            <button className="btn btn-link mt-2" id="menu-toggle"><FontAwesomeIcon icon={faList}/></button>
+                            <h1 className="mt-2 text-primary">Dashboard</h1>
+                            <div className="row px-2">
                                 <div className="col-sm-3 p-sm-2">
-                                    <div className="card bg-secondary text-white shadow-lg">
+                                    <div className="card bg-primary text-white shadow-lg">
                                         <div className="card-body">
-                                            <h5 className="card-title">Special title treatment</h5>
+                                            <h5 className="card-title">Users</h5>
                                             <p className="card-text">With supporting text below as a natural lead-in to
                                                 additional content.</p>
-                                            <a href="#" className="btn btn-light">Go somewhere</a>
+                                            <Link to="/users" className="btn btn-light"><FontAwesomeIcon className="text-primary" icon={faUserAlt}/> Go to Users</Link>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-sm-3 p-sm-2">
-                                    <div className="card bg-success text-white shadow-lg">
+                                    <div className="card bg-secondary text-white shadow-lg">
                                         <div className="card-body">
                                             <h5 className="card-title">Special title treatment</h5>
                                             <p className="card-text">With supporting text below as a natural lead-in to
@@ -56,7 +59,7 @@ class Dashboard extends Component {
                                     </div>
                                 </div>
                                 <div className="col-sm-3 p-sm-2">
-                                    <div className="card bg-danger text-white shadow-lg">
+                                    <div className="card bg-dark text-white shadow-lg">
                                         <div className="card-body">
                                             <h5 className="card-title">Special title treatment</h5>
                                             <p className="card-text">With supporting text below as a natural lead-in to

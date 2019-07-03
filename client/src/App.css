@@ -42,3 +42,7 @@ body {
         margin-left: -15rem;
     }
 }
+
+#as-react-datatable-container select {
+    width: 70px !important;
+}

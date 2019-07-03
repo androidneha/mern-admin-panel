@@ -50,7 +50,7 @@ class Login extends Component {
         return (
             <div className="container">
                 <div className="row mt-5">
-                    <div className="col-md-4 mx-auto mt-5 card shadow-lg">
+                    <div className="col-md-4 mx-auto mt-5 card">
                         <div className="card-body p-1">
                             <h2 className="text-center text-primary mt-3">Login</h2>
                             <form noValidate onSubmit={this.onSubmit} className="white">
@@ -65,8 +65,7 @@ class Login extends Component {
                                         invalid: errors.email
                                     })}
                                 />
-                                <span className="text-danger"><small><b>{errors.email}</b></small></span>
-                                <br />
+                                <span className="text-danger">{errors.email}</span>
                                 <label htmlFor="password">Password</label>
                                 <input
                                     onChange={this.onChange}
@@ -78,7 +77,7 @@ class Login extends Component {
                                         invalid: errors.password
                                     })}
                                 />
-                                <span className="text-danger"><small><b>{errors.password}</b></small></span>
+                                <span className="text-danger">{errors.password}</span>
                                 <p className="text-center pb-0 mt-2">
                                     <button
                                         type="submit"
