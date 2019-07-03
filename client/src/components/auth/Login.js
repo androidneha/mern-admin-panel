@@ -50,7 +50,7 @@ class Login extends Component {
         return (
             <div className="container">
                 <div className="row mt-5">
-                    <div className="col-md-4 mx-auto mt-5 card">
+                    <div className="col-md-4 mx-auto mt-5 card shadow-lg">
                         <div className="card-body p-1">
                             <h2 className="text-center text-primary mt-3">Login</h2>
                             <form noValidate onSubmit={this.onSubmit} className="white">
@@ -66,6 +66,7 @@ class Login extends Component {
                                     })}
                                 />
                                 <span className="text-danger">{errors.email}</span>
+                                <br/>
                                 <label htmlFor="password">Password</label>
                                 <input
                                     onChange={this.onChange}

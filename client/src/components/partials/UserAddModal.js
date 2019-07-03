@@ -23,7 +23,6 @@ class UserAddModal extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.errors);
         if (nextProps.errors) {
             this.setState({
                 errors: nextProps.errors

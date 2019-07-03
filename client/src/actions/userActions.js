@@ -16,7 +16,7 @@ export const addUser = (userData, history) => dispatch => {
         ).catch(err =>
         dispatch({
             type: GET_ERRORS,
-            payload: err
+            payload: err.response.data
         })
     );
 };
@@ -33,7 +33,7 @@ export const updateUser = (userData) => dispatch => {
         ).catch(err =>
         dispatch({
             type: GET_ERRORS,
-            payload: err
+            payload: err.response.data
         })
     );
 };
