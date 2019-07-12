@@ -1,45 +1,172 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+## MERN-Admin-Panel
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+## Features
+* Login-page and Basic layout design done by using Bootstrap
+* JWT and Passport for Authentication
+* Datatable with Client-side & Server Side Pagination
+* Multi-sort
+* Filters
+* Minimal design
+* Fully controllable via optional props and callbacks
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+## Demo
+[Click Here](https://androidneha.github.io/mern-admin-panel/client/build/)
 
----
+<a href="https://github.com/adnroidneha/mern-admin-panel">
+    <img src="https://raw.githubusercontent.com/androidneha/mern-admin-panel/master/demo.gif" alt="MERN-Admin-Panel">
+</a>
+<br>
 
-## Edit a file
+## Available Script
+To start server and client simultaneously
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+`npm run dev`
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+To Build react application
 
----
+cd client and run
 
-## Create a file
+`npm run build`
 
-Next, you’ll add a new file to this repository.
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+#### Datatable sample usage with static data
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+```js
+import React, { Component, Fragment } from 'react';
+import { render} from 'react-dom';
+import ReactDatatable from '@ashvin27/react-datatable';
 
----
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.columns = [
+            {
+                key: "name",
+                text: "Name",
+                className: "name",
+                align: "left",
+                sortable: true,
+            },
+            {
+                key: "address",
+                text: "Address",
+                className: "address",
+                align: "left",
+                sortable: true
+            },
+            {
+                key: "postcode",
+                text: "Postcode",
+                className: "postcode",
+                sortable: true
+            },
+            {
+                key: "rating",
+                text: "Rating",
+                className: "rating",
+                align: "left",
+                sortable: true
+            },
+            {
+                key: "type_of_food",
+                text: "Type of Food",
+                className: "type_of_food",
+                sortable: true,
+                align: "left"
+            },
+            {
+                key: "action",
+                text: "Action",
+                className: "action",
+                width: 100,
+                align: "left",
+                sortable: false,
+                cell: record => { 
+                    return (
+                        <Fragment>
+                            <button
+                                className="btn btn-primary btn-sm"
+                                onClick={() => this.editRecord(record)}
+                                style={{marginRight: '5px'}}>
+                                <i className="fa fa-edit"></i>
+                            </button>
+                            <button 
+                                className="btn btn-danger btn-sm" 
+                                onClick={() => this.deleteRecord(record)}>
+                                <i className="fa fa-trash"></i>
+                            </button>
+                        </Fragment>
+                    );
+                }
+            }
+        ];
+        this.config = {
+            page_size: 10,
+            length_menu: [ 10, 20, 50 ],
+            button: {
+                excel: true,
+                print: true
+            }
+        }
+        
+        this.state = {
+            records: [
+              {
+                "id": "55f14312c7447c3da7051b26",
+                "address": "228 City Road",
+                "name": ".CN Chinese",
+                "postcode": "3JH",
+                "rating": 5,
+                "type_of_food": "Chinese"
+              },
+              {
+                "id": "55f14312c7447c3da7051b27",
+                "address": "376 Rayleigh Road",
+                "name": "@ Thai",
+                "postcode": "5PT",
+                "rating": 5.5,
+                "type_of_food": "Thai"
+              },
+              {
+                "id": "55f14312c7447c3da7051b28",
+                "address": "30 Greyhound Road Hammersmith",
+                "name": "@ Thai Restaurant",
+                "postcode": "8NX",
+                "rating": 4.5,
+                "type_of_food": "Thai"
+              },
+              {
+                "id": "55f14312c7447c3da7051b29",
+                "address": "30 Greyhound Road Hammersmith",
+                "name": "@ Thai Restaurant",
+                "postcode": "8NX",
+                "rating": 4.5,
+                "type_of_food": "Thai"
+              }
+            ]
+        }
+    }
 
-## Clone a repository
+    editRecord(record) {
+        console.log("Edit Record", record);
+    }
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+    deleteRecord(record) {
+        console.log("Delete Record", record);
+    }
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+    render() {
+        return (
+            <div>
+                <ReactDatatable
+                    config={this.config}
+                    records={this.state.records}
+                    columns={this.columns}
+                />
+            </div>
+        )
+    }
+}
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+render(<App />, document.getElementById("app"));
+```
