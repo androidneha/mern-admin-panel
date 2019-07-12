@@ -10,7 +10,7 @@
 * Fully controllable via optional props and callbacks
 
 ## Demo
-[Click Here](https://androidneha.github.io/mern-admin-panel/client/build/)
+[Click Here](https://raw.githubusercontent.com/androidneha/mern-admin-panel/master/demo.gif)
 
 <a href="https://github.com/adnroidneha/mern-admin-panel">
     <img src="https://raw.githubusercontent.com/androidneha/mern-admin-panel/master/demo.gif" alt="MERN-Admin-Panel">
