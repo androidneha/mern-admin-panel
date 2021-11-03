@@ -15,7 +15,7 @@
     "mongoose": "^5.7.5",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "validator": "^11.0.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
