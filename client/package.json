@@ -20,7 +20,7 @@
     "prop-types": "^15.7.2",
     "ra-data-json-server": "^2.9.3",
     "react": "^16.8.6",
-    "react-admin": "^2.9.3",
+    "react-admin": "^4.7.0",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
